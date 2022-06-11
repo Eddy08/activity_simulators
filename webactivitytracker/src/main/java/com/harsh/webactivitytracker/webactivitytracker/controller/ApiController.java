@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.TreeMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
@@ -20,10 +22,11 @@ import com.harsh.webactivitytracker.webactivitytracker.service.ActivityService;
 public class ApiController{
     @Autowired
     private ActivityService activityService;
-
+    @Autowired Environment env;
     @GetMapping ("/files")
     public ResponseEntity getFilesData() throws IOException {
-        String response =activityService.getActivitiesFromDir("/home/others/python/user-experior/ActivitiesToProcesses");
+        String dir_name=env.getProperty("directory-name-with-jsons");
+        String response =activityService.getActivitiesFromDir(dir_name);
         return new ResponseEntity<String>(response,HttpStatus.OK);
     }
 
