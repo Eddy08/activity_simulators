@@ -38,7 +38,7 @@ def generate_json_content():
 
         act={}
         act["name"]=list_activities[r]
-        time_val=0-random.random()*10009 if random.randint(0,3)>2  else time.time()
+        time_val=0-random.random()*10009 if random.randint(0,3)>2  else time    .time()
         act["time"]=time_val
         duration=int(0-random.random()*10009) if random.randint(0,30000)>100000   else int(random.randint(0,30000))
         act["duration"]=duration
@@ -51,7 +51,7 @@ def generate_json_content():
 
 # create required files 
 def create_file():
-    file_name='file-'+str(round(time.time()*10000))
+    file_name='file-'+str(round(time.time()*10000))+'.json'
     # print(__location__)
     # do smth for files
     with open(os.path.join(__location__,file_name),"w") as file_ready_to_write:
