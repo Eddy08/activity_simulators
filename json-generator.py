@@ -29,7 +29,7 @@ list_activities=["doubleTap","singleTap","crash","anr","invalid"]
 def generate_json_content():
     str={}
     
-    str["uniqueId"]=random.getrandbits(100)
+    str["unique_id"]=random.getrandbits(32)
     
     activities=[]
     for i in range(10):
@@ -38,7 +38,7 @@ def generate_json_content():
 
         act={}
         act["name"]=list_activities[r]
-        time_val=0-random.random()*10009 if random.randint(0,3)>2  else time    .time()
+        time_val=0-random.random()*10009 if random.randint(0,3)>2  else int(time.time())
         act["time"]=time_val
         duration=int(0-random.random()*10009) if random.randint(0,30000)>100000   else int(random.randint(0,30000))
         act["duration"]=duration

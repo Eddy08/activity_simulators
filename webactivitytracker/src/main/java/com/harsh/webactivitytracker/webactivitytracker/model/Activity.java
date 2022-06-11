@@ -7,9 +7,12 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
 @Data
 @AllArgsConstructor
@@ -18,10 +21,11 @@ import javax.persistence.GeneratedValue;
 @Table
 public class Activity {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private long unique_id;
-    private String name;
+    @Enumerated(EnumType.STRING)
+    private ActivityName name;
     private LocalDateTime time;
     private int duration;
 }

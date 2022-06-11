@@ -1,19 +1,18 @@
 package com.harsh.webactivitytracker.webactivitytracker.model;
 
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
-
-// import com.fasterxml.jackson.annotation.JsonFormat;
+import java.time.LocalDate;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NoArgsConstructor;
-@Data
+
 @NoArgsConstructor
+@Data
 @AllArgsConstructor
-public class ActivityJson {
+public class ActivityDTO {
+    private int id;
+    private long unique_id;
     private String name;
-    // @JsonFormat("")
-    private long time;
+    private LocalDate time;
     private int duration;
+
 }
